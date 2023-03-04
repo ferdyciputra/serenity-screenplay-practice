@@ -5,8 +5,6 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import net.serenitybdd.screenplay.Actor;
 import net.serenitybdd.screenplay.ensure.Ensure;
-import net.serenitybdd.screenplay.questions.Text;
-import net.serenitybdd.screenplay.ui.PageElement;
 import swaglabs.model.SwaglabsUser;
 import swaglabs.pageobjects.CatalogPage;
 import swaglabs.pageobjects.LoginPage;
