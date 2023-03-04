@@ -8,6 +8,8 @@ import net.serenitybdd.screenplay.ensure.Ensure;
 import net.serenitybdd.screenplay.questions.Text;
 import net.serenitybdd.screenplay.ui.PageElement;
 import swaglabs.model.SwaglabsUser;
+import swaglabs.pageobjects.CatalogPage;
+import swaglabs.pageobjects.LoginPage;
 import swaglabs.tasks.authentication.Login;
 import swaglabs.tasks.navigation.Navigate;
 
@@ -17,14 +19,14 @@ public class AuthenticationStepDefinitions {
     public void isLoggedOn(Actor actor) {
         actor.attemptsTo(
                 Navigate.toTheLoginPage(),
-                Login.asA(SwaglabsUser.STANDARD_USER)
+                Login.asA(SwaglabsUser.VALID_USER)
         );
     }
 
     @Then("{actor} should be presented with the product catalog")
     public void shouldBePresentedWithTheProductCatalog(Actor actor) {
         actor.attemptsTo(
-                Ensure.that(Text.of(".title")).isEqualToIgnoringCase("Products")
+                Ensure.that(CatalogPage.INVENTORY_ITEM_NAME).isDisplayed()
         );
     }
 
@@ -45,7 +47,7 @@ public class AuthenticationStepDefinitions {
     @Then("{actor} should be see the error message")
     public void shouldBeSeeTheErrorMessage(Actor actor) {
         actor.attemptsTo(
-                Ensure.that(PageElement.locatedBy(".error-message-container")).isDisplayed()
+                Ensure.that(LoginPage.ERROR_MESSAGE).isDisplayed()
         );
     }
 }
