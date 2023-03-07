@@ -9,10 +9,10 @@ import swaglabs.pageobjects.LoginPage;
 
 public class Login {
 
-    public static Performable asA(SwaglabsUser standardUser) {
-        return Task.where("{0} logs in as a " + standardUser,
-                Enter.theValue(standardUser.username).into(LoginPage.USER_NAME_FIELD),
-                Enter.theValue(standardUser.password).into(LoginPage.PASSWORD_FIELD),
+    public static Performable asA(SwaglabsUser swaglabsUser) {
+        return Task.where("{0} logs in as a " + swaglabsUser,
+                Enter.theValue(swaglabsUser.username).into(LoginPage.USER_NAME_FIELD),
+                Enter.theValue(swaglabsUser.password).into(LoginPage.PASSWORD_FIELD),
                 Click.on(LoginPage.LOGIN_BUTTON)
         );
     }
